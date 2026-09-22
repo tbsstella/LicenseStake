@@ -11,6 +11,8 @@ Entry fee is 5% at stake time (3% treasury, 1% referrer, 1% back to the staker).
 
 Staking token: [SIMN](https://etherscan.io/address/0x2e3f8d10818807fa607be3e2AE53863d8d8F4235) on Ethereum mainnet.
 
+Deployed LicenseStake: [`0x7f35eDa1cd5dC2AB936f8C50e2683004D1fceEc3`](https://etherscan.io/address/0x7f35eDa1cd5dC2AB936f8C50e2683004D1fceEc3)
+
 ## Compile
 
 ```bash
