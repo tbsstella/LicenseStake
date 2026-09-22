@@ -1,0 +1,12 @@
+{
+  "name": "license-stake",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "compile": "node scripts/compile-contract.mjs"
+  },
+  "devDependencies": {
+    "solc": "^0.8.36",
+    "viem": "^2.55.10"
+  }
+}
