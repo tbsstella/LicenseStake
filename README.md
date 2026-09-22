@@ -33,3 +33,9 @@ DEPLOYER_KEY=0x... node scripts/deploy-license.mjs
 Optional: `TREASURY` (defaults to the deployer), `ETH_RPC`, `SIMN_ADDRESS`.
 
 This repository has not been independently audited. Read `contracts/LicenseStake.sol` before sending funds.
+
+## Verification & static analysis
+
+Compiler settings matched to mainnet and explorer verify notes: `reports/VERIFICATION.md`.
+
+Automated Slither / Aderyn output (not an audit): `reports/STATIC-ANALYSIS.md`.
