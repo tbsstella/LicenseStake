@@ -6,7 +6,7 @@
     "compile": "node scripts/compile-contract.mjs"
   },
   "devDependencies": {
-    "solc": "^0.8.36",
+    "solc": "0.8.36",
     "viem": "^2.55.10"
   }
 }

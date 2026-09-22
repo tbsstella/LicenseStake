@@ -1,0 +1,17 @@
+
+Detector: missing-zero-check
+LicenseStake.transferOwnership(address).to (contracts/LicenseStake.sol#295) lacks a zero-check on :
+		- pendingOwner = to (contracts/LicenseStake.sol#296)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Detector: low-level-calls
+Low level call in LicenseStake._safeTransfer(address,uint256) (contracts/LicenseStake.sol#235-240):
+	- (ok,data) = address(token).call(abi.encodeWithSelector(IERC20.transfer.selector,to,value)) (contracts/LicenseStake.sol#236-238)
+Low level call in LicenseStake._safeTransferFrom(address,address,uint256) (contracts/LicenseStake.sol#242-247):
+	- (ok,data) = address(token).call(abi.encodeWithSelector(IERC20.transferFrom.selector,from,to,value)) (contracts/LicenseStake.sol#243-245)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Detector: unindexed-event-address
+Event LicenseStake.TreasurySet(address) (contracts/LicenseStake.sol#97) has address parameters but no indexed parameters
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unindexed-event-address-parameters
+contracts/LicenseStake.sol analyzed (2 contracts with 102 detectors), 4 result(s) found

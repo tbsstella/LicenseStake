@@ -1,5 +1,9 @@
 // Compile contracts/LicenseStake.sol with solc (wasm) and write ABI+bytecode
 // to contracts/build/LicenseStake.json. Usage: node scripts/compile-contract.mjs
+//
+// Mainnet LicenseStake (0x7f35eDa1cd5dC2AB936f8C50e2683004D1fceEc3) was
+// verified against: solc 0.8.36, optimizer runs=200, viaIR=false, evm=cancun.
+// Pin solc@0.8.36 in package.json. See reports/VERIFICATION.md.
 import fs from "node:fs";
 import path from "node:path";
 import solc from "solc";
@@ -8,11 +12,20 @@ const root = process.cwd();
 const srcPath = path.join(root, "contracts", "LicenseStake.sol");
 const source = fs.readFileSync(srcPath, "utf8");
 
+const expected = "0.8.36";
+if (!String(solc.version()).startsWith(expected)) {
+  console.warn(
+    `⚠ solc ${solc.version()} — mainnet match expects ${expected}+commit.8a079791 (pin solc@0.8.36)`
+  );
+}
+
 const input = {
   language: "Solidity",
   sources: { "LicenseStake.sol": { content: source } },
   settings: {
     optimizer: { enabled: true, runs: 200 },
+    // viaIR: omitted (false) — matches mainnet bytecode
+    evmVersion: "cancun",
     outputSelection: { "*": { "*": ["abi", "evm.bytecode.object"] } },
   },
 };
